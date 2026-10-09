@@ -1,0 +1,26 @@
+
+{% extends "base.html" %}
+{% block title %}Tổng quan | InvoiceFlow{% endblock %}
+{% block content %}
+<main class="container">
+    <div class="page-heading">
+        <div class="eyebrow">WORKSPACE / TỔNG QUAN</div>
+        <h1>Xin chào, {{ tai_khoan }} 👋</h1>
+        <p class="muted">Chào mừng bạn đến với hệ thống quản lý hóa đơn InvoiceFlow.</p>
+    </div>
+    <div class="grid">
+        <div class="stat"><div class="stat-label">Hệ thống</div><div class="stat-value">InvoiceFlow</div><p class="muted">Quản lý bán hàng</p></div>
+        <div class="stat"><div class="stat-label">Tài khoản hiện tại</div><div class="stat-value">{{ tai_khoan }}</div><p class="muted">Đã đăng nhập</p></div>
+        <div class="stat"><div class="stat-label">Công cụ</div><div class="stat-value">Hóa đơn</div><p class="muted">Tính tiền tự động</p></div>
+    </div>
+    <section class="card" style="margin-top:24px">
+        <div class="eyebrow">THAO TÁC NHANH</div>
+        <h2>Tạo hóa đơn bán hàng</h2>
+        <p class="muted" style="margin-top:8px">Nhập thông tin khách hàng và sản phẩm để hệ thống tự động tính chiết khấu, VAT và phí vận chuyển.</p>
+        <div class="actions">
+            <a class="btn" href="{{ url_for('hoa_don') }}">+ Tạo hóa đơn mới</a>
+            <a class="btn btn-light" href="{{ url_for('logout') }}">Đăng xuất</a>
+        </div>
+    </section>
+</main>
+{% endblock %}

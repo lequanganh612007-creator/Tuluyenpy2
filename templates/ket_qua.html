@@ -1,0 +1,42 @@
+
+{% extends "base.html" %}
+{% block title %}Kết quả hóa đơn | InvoiceFlow{% endblock %}
+{% block content %}
+<main class="container">
+    <div class="page-heading">
+        <div class="eyebrow">SALES / INVOICE SUMMARY</div>
+        <h1>Kết quả hóa đơn</h1>
+        <p class="muted">Chi tiết tính toán và tổng số tiền khách hàng cần thanh toán.</p>
+    </div>
+    <section class="card">
+        <div class="eyebrow">THÔNG TIN ĐƠN HÀNG</div>
+        <div class="grid" style="margin-bottom:28px">
+            <div><div class="result-label">Khách hàng</div><div class="result-value" style="margin-top:8px">{{ hoa_don.ten_khach }}</div></div>
+            <div><div class="result-label">Sản phẩm</div><div class="result-value" style="margin-top:8px">{{ hoa_don.ten_san_pham }}</div></div>
+            <div><div class="result-label">Số lượng</div><div class="result-value" style="margin-top:8px">{{ hoa_don.so_luong }}</div></div>
+        </div>
+        <div class="table-wrap">
+            <table>
+                <thead><tr><th>Nội dung</th><th>Giá trị</th></tr></thead>
+                <tbody>
+                    <tr><td>Thành tiền</td><td>{{ "{:,.0f}".format(hoa_don.thanh_tien) }} VNĐ</td></tr>
+                    <tr><td>Chiết khấu ({{ hoa_don.ty_le_chiet_khau }}%)</td><td>- {{ "{:,.0f}".format(hoa_don.tien_chiet_khau) }} VNĐ</td></tr>
+                    <tr><td>Tiền sau chiết khấu</td><td>{{ "{:,.0f}".format(hoa_don.tien_sau_chiet_khau) }} VNĐ</td></tr>
+                    <tr><td>Thuế VAT ({{ hoa_don.vat }}%)</td><td>{{ "{:,.0f}".format(hoa_don.tien_vat) }} VNĐ</td></tr>
+                    <tr><td>Tiền hàng gồm VAT</td><td>{{ "{:,.0f}".format(hoa_don.tien_hang) }} VNĐ</td></tr>
+                    <tr><td>Phí vận chuyển</td><td>{{ "{:,.0f}".format(hoa_don.phi_van_chuyen) }} VNĐ</td></tr>
+                </tbody>
+            </table>
+        </div>
+        <div class="total-box">
+            <span>TỔNG THANH TOÁN</span>
+            <div class="total-amount">{{ "{:,.0f}".format(hoa_don.tong_thanh_toan) }} VNĐ</div>
+        </div>
+        <div class="actions no-print">
+            <button class="btn" onclick="window.print()">In hóa đơn ↗</button>
+            <a class="btn btn-light" href="{{ url_for('hoa_don') }}">+ Tạo hóa đơn khác</a>
+            <a class="btn btn-light" href="{{ url_for('dashboard') }}">Về trang chủ</a>
+        </div>
+    </section>
+</main>
+{% endblock %}

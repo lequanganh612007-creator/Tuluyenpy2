@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+{% block title %}Đăng nhập | InvoiceFlow{% endblock %}
+{% block content %}
+<main class="login-page">
+    <section class="login-hero">
+        <div class="eyebrow">QUẢN LÝ BÁN HÀNG THÔNG MINH</div>
+        <h1>Tính hóa đơn nhanh.<br>Vận hành <span>gọn gàng.</span></h1>
+        <p>Quản lý hóa đơn bán hàng dễ dàng với hệ thống tính toán chiết khấu, thuế VAT và phí vận chuyển tự động.</p>
+        <div class="feature-list">
+            <div class="feature"><div class="check">✓</div><div><strong>Chiết khấu tự động</strong><p>Tính mức giảm giá dựa trên số lượng sản phẩm.</p></div></div>
+            <div class="feature"><div class="check">✓</div><div><strong>Tính thuế VAT chính xác</strong><p>Tự động tính thuế và tổng thanh toán.</p></div></div>
+            <div class="feature"><div class="check">✓</div><div><strong>Quản lý đơn hàng dễ dàng</strong><p>Giao diện trực quan, thao tác nhanh chóng.</p></div></div>
+        </div>
+    </section>
+    <section class="login-side">
+        <div class="login-card">
+            <div class="eyebrow">CHÀO MỪNG TRỞ LẠI</div>
+            <h2>Đăng nhập</h2>
+            <p class="muted">Nhập thông tin tài khoản để tiếp tục làm việc.</p>
+            <form class="login-form" method="POST" action="{{ url_for('login') }}">
+                <div class="field"><label for="tai_khoan">Tên tài khoản</label><input id="tai_khoan" name="tai_khoan" type="text" placeholder="Nhập tên tài khoản" autocomplete="username" required></div>
+                <div class="field"><label for="mat_khau">Mật khẩu</label><input id="mat_khau" name="mat_khau" type="password" placeholder="Nhập mật khẩu" autocomplete="current-password" required></div>
+                <button class="btn" type="submit">Đăng nhập <span>→</span></button>
+            </form>
+            <div class="demo">
+                <div class="demo-title">Tài khoản dùng thử</div>
+                <div class="demo-row"><span>Nhân viên</span><code>nhanvien</code><code>nv123456</code></div>
+                <div class="demo-row"><span>Quản lý</span><code>quanly</code><code>ql123456</code></div>
+            </div>
+        </div>
+    </section>
+</main>
+{% endblock %}

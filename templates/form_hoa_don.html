@@ -1,0 +1,27 @@
+
+{% extends "base.html" %}
+{% block title %}Tạo hóa đơn | InvoiceFlow{% endblock %}
+{% block content %}
+<main class="container">
+    <div class="page-heading">
+        <div class="eyebrow">SALES / NEW INVOICE</div>
+        <h1>Tạo hóa đơn mới</h1>
+        <p class="muted">Nhập thông tin đơn hàng để tính tổng thanh toán tự động.</p>
+    </div>
+    <form method="POST" action="{{ url_for('hoa_don') }}" class="card">
+        <div class="eyebrow">01 / THÔNG TIN ĐƠN HÀNG</div>
+        <div class="form-grid">
+            <div class="field"><label for="ten_khach">Tên khách hàng</label><input id="ten_khach" name="ten_khach" type="text" placeholder="Nhập tên khách hàng" required></div>
+            <div class="field"><label for="ten_san_pham">Tên sản phẩm</label><input id="ten_san_pham" name="ten_san_pham" type="text" placeholder="Nhập tên sản phẩm" required></div>
+            <div class="field"><label for="don_gia">Đơn giá (VNĐ)</label><input id="don_gia" name="don_gia" type="number" min="0" step="any" placeholder="Ví dụ: 150000" required></div>
+            <div class="field"><label for="so_luong">Số lượng</label><input id="so_luong" name="so_luong" type="number" min="1" step="1" placeholder="Nhập số lượng" required></div>
+            <div class="field"><label for="vat">Thuế VAT (%)</label><input id="vat" name="vat" type="number" min="0" step="any" value="10" required></div>
+            <div class="field"><label for="phi_van_chuyen">Phí vận chuyển (VNĐ)</label><input id="phi_van_chuyen" name="phi_van_chuyen" type="number" min="0" step="any" value="0" required></div>
+        </div>
+        <div class="actions">
+            <button class="btn" type="submit">Tính hóa đơn →</button>
+            <a class="btn btn-light" href="{{ url_for('dashboard') }}">Quay lại</a>
+        </div>
+    </form>
+</main>
+{% endblock %}
